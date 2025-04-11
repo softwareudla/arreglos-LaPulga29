@@ -52,8 +52,10 @@ int main() {
     for (int cont1 = 0; cont1 < estudiantes; cont1++) {
         float max = calificaciones[cont1][0], min = calificaciones[cont1][0];
         for (int cont2 = 1; cont2 < materias; cont2++) {
-            if (calificaciones[cont1][cont2] > max) max = calificaciones[cont1][cont2];
-            if (calificaciones[cont1][cont2] < min) min = calificaciones[cont1][cont2];
+            if (calificaciones[cont1][cont2] > max) 
+                max = calificaciones[cont1][cont2];
+            if (calificaciones[cont1][cont2] < min) 
+                min = calificaciones[cont1][cont2];
         }
         printf("%s\t\t\t%.2f\t\t\t%.2f\n", estudiantes_nombres[cont1], max, min);
     }
@@ -72,7 +74,6 @@ int main() {
     printf("\n\t  -> APROBADOS POR MATERIA <-\t");
     printf("\nMATERIA\t\t\t\t\tAPROBADOS\t\n");
     for (int cont2 = 0; cont2 < materias; cont2++) {
-        aprobados = 0; 
         for (int cont1 = 0; cont1 < estudiantes; cont1++) {
             if (calificaciones[cont1][cont2] >= 6)
                 aprobados = aprobados + 1;
