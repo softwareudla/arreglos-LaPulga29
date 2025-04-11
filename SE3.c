@@ -31,51 +31,53 @@ int main() {
             } while (calificaciones[cont1][cont2] < 0 || calificaciones[cont1][cont2] > 10 || val1 != 1);
         }
     }
-    printf("\n\t-> PROMEDIOS POR ESTUDIANTES <-");
-    printf("\nESTUDIANTE\t\t\tPROMEDIO X ESTUDIANTE \t\n");
+    printf("\n\t  -> PROMEDIOS POR ESTUDIANTES <-");
+    printf("\nESTUDIANTE\t\t\t\tPROMEDIO\t\n");
     for (int cont1 = 0; cont1 < estudiantes; cont1++) {
         for (int cont2 = 0; cont2 < materias; cont2++)
             suma = suma + calificaciones[cont1][cont2];
-        printf("%s \t\t\t\t%.2f\t\t\t\n", estudiantes_nombres[cont1], suma / 3);
+        printf("%s \t\t\t\t  %.2f\t\t\t\n", estudiantes_nombres[cont1], suma / 3);
         suma = 0; 
     }
-    printf("\n\t-> PROMEDIOS POR MATERIA <-"); 
-    printf("\nMATERIA\t\t\tPROMEDIO X MATERIA \t\n");
+    printf("\n\t   -> PROMEDIOS POR MATERIA <-"); 
+    printf("\nMATERIA\t\t\t\t\tPROMEDIO\t\n");
     for (int cont2 = 0; cont2 < materias; cont2++) {
         for (int cont1 = 0; cont1 < estudiantes; cont1++)
             suma = suma + calificaciones[cont1][cont2];
-        printf("%s \t\t\t\t%.2f\t\t\t\n", materias_nombres[cont2], suma / 5);
+        printf("%s \t\t\t\t\t  %.2f\t\t\t\n", materias_nombres[cont2], suma / 5);
         suma = 0; 
     }
     printf("\n\t -> NOTA MAS BAJA Y MAS ALTA POR ESTUDIANTE <- \t\n");
-    printf("ESTUDIANTE\t\t\tMAYOR\t\tMENOR\n"); 
+    printf("ESTUDIANTE\t\t\tMAYOR\t\t\tMENOR\n"); 
     for (int cont1 = 0; cont1 < estudiantes; cont1++) {
         float max = calificaciones[cont1][0], min = calificaciones[cont1][0];
         for (int cont2 = 1; cont2 < materias; cont2++) {
             if (calificaciones[cont1][cont2] > max) max = calificaciones[cont1][cont2];
             if (calificaciones[cont1][cont2] < min) min = calificaciones[cont1][cont2];
         }
-        printf("%s\t\t\t%.2f\t\t%.2f\n", estudiantes_nombres[cont1], max, min);
+        printf("%s\t\t\t%.2f\t\t\t%.2f\n", estudiantes_nombres[cont1], max, min);
     }
-    printf("\n -> NOTA MAS BAJA Y MAS ALTA X MATERIA <- \t\n");
-    printf("MATERIA\t\t\tMAYOR\t\tMENOR\n"); 
+    printf("\n\t -> NOTA MAS BAJA Y MAS ALTA POR MATERIA <- \t\n");
+    printf("MATERIA\t\t\t\tMAYOR\t\t\tMENOR\n"); 
     for (int cont2 = 0; cont2 < materias; cont2++) {
         float max = calificaciones[0][cont2], min = calificaciones[0][cont2]; 
         for (int cont1 = 1; cont1 < estudiantes; cont1++) {
-            if (calificaciones[cont1][cont2] > max) max = calificaciones[cont1][cont2];
-            if (calificaciones[cont1][cont2] < min) min = calificaciones[cont1][cont2];
+            if (calificaciones[cont1][cont2] > max) 
+                max = calificaciones[cont1][cont2];
+            if (calificaciones[cont1][cont2] < min) 
+                min = calificaciones[cont1][cont2];
         }
-        printf("%s\t\t\t%.2f\t\t%.2f\n", materias_nombres[cont2], max, min);
+        printf("%s\t\t\t\t%.2f\t\t\t%.2f\n", materias_nombres[cont2], max, min);
     }
-    printf("\n-> ESTUDIANTES QUE APROBARON X ASIGNATURA <-\t");
-    printf("\nMATERIA\t\t\tAPROBADOS\t\n");
+    printf("\n\t  -> APROBADOS POR MATERIA <-\t");
+    printf("\nMATERIA\t\t\t\t\tAPROBADOS\t\n");
     for (int cont2 = 0; cont2 < materias; cont2++) {
         aprobados = 0; 
         for (int cont1 = 0; cont1 < estudiantes; cont1++) {
             if (calificaciones[cont1][cont2] >= 6)
                 aprobados = aprobados + 1;
         }
-        printf("%s\t\t\t  %d \n", materias_nombres[cont2], aprobados);
+        printf("%s\t\t\t\t\t   %d\n", materias_nombres[cont2], aprobados);
     }
     return 0;
 }
